@@ -157,9 +157,6 @@ export default function DateInvitation() {
                     <p className="text-primary font-serif text-2xl font-bold">
                       Koala Cafe
                     </p>
-                    <p className="text-muted-foreground text-sm mt-1">
-                      Tempat favorit kita ☕
-                    </p>
                   </div>
                 </Card>
               </motion.div>
