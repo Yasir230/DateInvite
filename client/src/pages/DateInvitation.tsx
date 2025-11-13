@@ -4,13 +4,22 @@ import { Calendar, MapPin, Heart, Coffee, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import confetti from 'canvas-confetti';
+import SplashScreen from '@/components/SplashScreen';
 import OpeningAnimation from '@/components/OpeningAnimation';
 import FloatingHearts from '@/components/FloatingHearts';
 
 export default function DateInvitation() {
-  const [showOpening, setShowOpening] = useState(true);
+  const [showSplash, setShowSplash] = useState(true);
+  const [showOpening, setShowOpening] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
+
+  const handleEnterFromSplash = () => {
+    setShowSplash(false);
+    setTimeout(() => {
+      setShowOpening(true);
+    }, 500);
+  };
 
   useEffect(() => {
     if (!showOpening) {
@@ -65,6 +74,12 @@ export default function DateInvitation() {
     <div className="min-h-screen bg-gradient-to-br from-background via-accent/10 to-background overflow-hidden">
       <FloatingHearts />
       
+      <AnimatePresence mode="wait">
+        {showSplash && (
+          <SplashScreen onEnter={handleEnterFromSplash} />
+        )}
+      </AnimatePresence>
+
       <AnimatePresence>
         {showOpening && (
           <OpeningAnimation onComplete={() => setShowOpening(false)} />
