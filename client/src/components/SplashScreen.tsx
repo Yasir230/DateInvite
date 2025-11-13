@@ -13,7 +13,8 @@ export default function SplashScreen({ onEnter }: SplashScreenProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-accent/20"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-accent/20 backdrop-blur-xl"
+      style={{ backgroundColor: 'hsl(var(--background))' }}
     >
       <div className="relative max-w-lg px-6 text-center space-y-8">
         <motion.div
@@ -124,19 +125,6 @@ export default function SplashScreen({ onEnter }: SplashScreenProps) {
               </motion.span>
             </Button>
           </motion.div>
-
-          <motion.p 
-            className="text-sm text-muted-foreground/60 mt-4"
-            animate={{ 
-              opacity: [0.6, 1, 0.6]
-            }}
-            transition={{ 
-              repeat: Infinity,
-              duration: 2
-            }}
-          >
-            Klik untuk membuka pesan spesial...
-          </motion.p>
         </motion.div>
       </div>
 
